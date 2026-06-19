@@ -18,34 +18,28 @@
       --ink-900:    #0f0a1a;
       --ink-700:    #2e2248;
       --ink-500:    #6b5f82;
-      --ink-400:    #9b8fb0;
       --ink-200:    #d8d0e8;
       --ink-100:    #ede8f5;
       --ink-50:     #f8f6fc;
       --white:      #ffffff;
       --shadow-sm:  0 1px 3px rgba(45,10,94,0.12), 0 1px 2px rgba(45,10,94,0.08);
-      --r-md: 10px;
-      --r-lg: 16px;
+      --r-md:  10px;
+      --r-lg:  16px;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       background: var(--ink-50);
       color: var(--ink-900);
       font-family: 'Inter', system-ui, sans-serif;
       font-size: 1rem;
-      line-height: 1.7;
+      line-height: 1.6;
     }
-
-    /* ── Header ── */
     .site-header {
       background: var(--purple-900);
-      padding: 2.5rem 2rem 2rem;
+      padding: 2.5rem 2rem;
       position: relative;
       overflow: hidden;
     }
-
     .site-header::before {
       content: '';
       position: absolute;
@@ -53,211 +47,136 @@
       background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,58,237,0.4) 0%, transparent 70%);
       pointer-events: none;
     }
-
+    .header-inner { max-width: 720px; margin: 0 auto; position: relative; }
     .logo-lockup {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 1.5rem; text-decoration: none;
     }
-
     .logo-badge {
-      width: 44px; height: 44px;
-      background: var(--purple-700);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Comfortaa', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: white;
-      box-shadow: var(--shadow-sm);
-      flex-shrink: 0;
+      width: 40px; height: 40px; background: var(--purple-700);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      font-family: 'Comfortaa', sans-serif; font-size: 1rem; font-weight: 700;
+      color: white; box-shadow: var(--shadow-sm); flex-shrink: 0;
     }
-
-    .logo-text-name {
-      font-family: 'Comfortaa', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1;
+    .logo-name { font-family: 'Comfortaa', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); line-height: 1; }
+    .logo-sub  { font-family: 'Comfortaa', sans-serif; font-size: 0.55rem; font-weight: 400; letter-spacing: 0.32em; text-transform: uppercase; color: var(--sky-400); margin-top: 3px; }
+    .page-title { font-family: 'Comfortaa', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 0.5rem; }
+    .page-subtitle { font-size: 0.875rem; color: rgba(255,255,255,0.5); }
+    .site-nav { background: var(--purple-950); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .site-nav-inner { max-width: 720px; margin: 0 auto; padding: 0 2rem; display: flex; gap: 2rem; }
+    .site-nav a {
+      display: block; padding: 0.75rem 0;
+      font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--purple-300); text-decoration: none; opacity: 0.7; transition: opacity 0.15s;
     }
-
-    .logo-text-sub {
-      font-family: 'Comfortaa', sans-serif;
-      font-size: 0.55rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--sky-400);
-      margin-top: 3px;
+    .site-nav a:hover, .site-nav a.active { opacity: 1; }
+    .page-body { max-width: 720px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+    .info-card {
+      background: var(--purple-50); border: 1px solid var(--purple-100);
+      border-left: 3px solid var(--purple-700);
+      border-radius: 0 var(--r-md) var(--r-md) 0;
+      padding: 1rem 1.25rem; margin-bottom: 2rem;
     }
-
-    /* ── Page wrapper ── */
-    .page-body {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 3rem 2rem 5rem;
+    .info-card p { margin: 0; font-size: 0.875rem; color: var(--purple-700); }
+    .prose h2 {
+      font-family: 'Comfortaa', sans-serif; font-size: 1.125rem; font-weight: 700;
+      color: var(--ink-900); margin-top: 2.5rem; margin-bottom: 0.75rem;
     }
-
-    /* ── Page title block ── */
-    .page-title {
-      font-family: 'Comfortaa', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--ink-900);
-      line-height: 1.2;
-      margin-bottom: 0.375rem;
-      letter-spacing: -0.3px;
-    }
-
-    .page-meta {
-      font-size: 0.8125rem;
-      color: var(--ink-400);
-      margin-bottom: 2.5rem;
-    }
-
-    /* ── Section headings ── */
-    h2 {
-      font-family: 'Comfortaa', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--ink-900);
-      margin-top: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    /* ── Body copy ── */
-    p {
-      font-size: 0.9375rem;
-      color: var(--ink-700);
-      line-height: 1.75;
-      margin-bottom: 0.75rem;
-    }
-
-    ul {
-      margin: 0.25rem 0 0.75rem 1.25rem;
-    }
-
-    li {
-      font-size: 0.9375rem;
-      color: var(--ink-700);
-      line-height: 1.75;
-    }
-
-    a {
-      color: var(--purple-700);
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
-    a:hover { color: var(--purple-600); }
-
-    /* ── Divider ── */
-    hr {
-      border: none;
-      border-top: 1px solid var(--ink-200);
-      margin: 2rem 0;
-    }
-
-    /* ── Footer ── */
-    .site-footer {
-      border-top: 1px solid var(--ink-200);
-      padding-top: 1.5rem;
-      margin-top: 3rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
+    .prose h2:first-child { margin-top: 0; }
+    .prose p { font-size: 0.97rem; color: var(--ink-700); line-height: 1.75; margin-bottom: 1rem; }
+    .prose ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+    .prose ul li { font-size: 0.97rem; color: var(--ink-700); line-height: 1.75; margin-bottom: 0.25rem; }
+    .prose a { color: var(--purple-700); }
+    .prose a:hover { color: var(--purple-600); }
+    .site-footer { border-top: 1px solid var(--ink-200); padding: 2rem; text-align: center; }
+    .footer-inner { max-width: 720px; margin: 0 auto; }
+    .footer-logo { display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; text-decoration: none; }
     .footer-badge {
-      width: 32px; height: 32px;
-      background: var(--purple-700);
-      border-radius: 9px;
+      width: 32px; height: 32px; background: var(--purple-700); border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Comfortaa', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: white;
-      flex-shrink: 0;
+      font-family: 'Comfortaa', sans-serif; font-size: 0.8rem; font-weight: 700; color: white;
     }
-
-    .footer-text-name {
-      font-family: 'Comfortaa', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--ink-900);
-      line-height: 1;
-    }
-
-    .footer-text-sub {
-      font-family: 'Comfortaa', sans-serif;
-      font-size: 0.48rem;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--purple-700);
-      margin-top: 3px;
-    }
-
+    .footer-name { font-family: 'Comfortaa', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--ink-900); line-height: 1.1; }
+    .footer-sub  { font-family: 'Comfortaa', sans-serif; font-size: 0.5rem; font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: var(--purple-700); }
+    .footer-copy { font-size: 0.75rem; color: var(--ink-500); letter-spacing: 0.05em; }
     @media (max-width: 600px) {
-      .page-body { padding: 2rem 1rem 3rem; }
-      .site-header { padding: 2rem 1rem 1.5rem; }
-      .page-title { font-size: 1.6rem; }
+      .page-body { padding: 2rem 1rem 4rem; }
+      .site-header { padding: 2rem 1rem; }
+      .site-nav-inner { padding: 0 1rem; gap: 1.25rem; }
     }
   </style>
 </head>
 <body>
 
   <header class="site-header">
-    <a class="logo-lockup" href="#">
-      <div class="logo-badge">SS</div>
-      <div>
-        <div class="logo-text-name">Scotford</div>
-        <div class="logo-text-sub">Studios</div>
-      </div>
-    </a>
+    <div class="header-inner">
+      <a class="logo-lockup" href="index.html">
+        <div class="logo-badge">SS</div>
+        <div>
+          <div class="logo-name">Scotford</div>
+          <div class="logo-sub">Studios</div>
+        </div>
+      </a>
+      <h1 class="page-title">Privacy Policy</h1>
+      <p class="page-subtitle">Mealwise · Last updated 19 June 2026</p>
+    </div>
   </header>
 
-  <div class="page-body">
+  <nav class="site-nav">
+    <div class="site-nav-inner">
+      <a href="index.html">Home</a>
+      <a href="privacy.html" class="active">Privacy</a>
+      <a href="support.html">Support</a>
+    </div>
+  </nav>
 
-    <h1 class="page-title">Privacy Policy for Mealwise</h1>
-    <p class="page-meta">Last updated: 19 June 2026</p>
+  <main class="page-body">
+    <div class="info-card">
+      <p>Mealwise stores everything on your device. We don't require an account and we never sell your data.</p>
+    </div>
 
-    <h2>Overview</h2>
-    <p>Mealwise is a meal planning and shopping list app. We are committed to protecting your privacy. This policy explains what data we collect and how it is used.</p>
+    <div class="prose">
+      <h2>Overview</h2>
+      <p>Mealwise is a meal planning and shopping list app made by Scotford Studios. This policy explains what data we collect and how it is used.</p>
 
-    <h2>Data stored on your device only</h2>
-    <p>All meal plans, recipes, ingredients, and shopping lists you create in Mealwise are stored exclusively on your device. This data is never transmitted to us or any third party. If you delete the app, this data is permanently removed.</p>
-    <p>If you choose to add photos to your meals, these are also stored locally on your device only.</p>
+      <h2>Data stored on your device only</h2>
+      <p>All meal plans, recipes, ingredients, and shopping lists you create in Mealwise are stored exclusively on your device. This data is never transmitted to us or any third party. If you delete the app, this data is permanently removed.</p>
+      <p>If you choose to add photos to your meals, these are also stored locally on your device only.</p>
 
-    <h2>Crash and error reports</h2>
-    <p>Mealwise uses Sentry to collect anonymous crash reports and error logs. This helps us identify and fix bugs. Sentry may collect device type, OS version, and a stack trace of the error. No personally identifiable information is included. You can review Sentry's privacy policy at <a href="https://sentry.io/privacy">sentry.io/privacy</a>.</p>
+      <h2>Crash and error reports</h2>
+      <p>Mealwise uses Sentry to collect anonymous crash reports and error logs. This helps us identify and fix bugs. Sentry may collect your device type, OS version, and a stack trace of the error. No personally identifiable information is included. You can review Sentry's privacy policy at <a href="https://sentry.io/privacy" target="_blank" rel="noopener">sentry.io/privacy</a>.</p>
 
-    <h2>Data we do not collect</h2>
-    <ul>
-      <li>We do not require you to create an account</li>
-      <li>We do not collect your name, email address, or any contact information</li>
-      <li>We do not use advertising or tracking</li>
-      <li>We do not sell or share your data with third parties</li>
-    </ul>
+      <h2>What we don't collect</h2>
+      <ul>
+        <li>We do not require you to create an account</li>
+        <li>We do not collect your name, email address, or any contact information</li>
+        <li>We do not use advertising or tracking</li>
+        <li>We do not sell or share your data with third parties</li>
+      </ul>
 
-    <h2>Children's privacy</h2>
-    <p>Mealwise does not knowingly collect any data from children under 13.</p>
+      <h2>Children's privacy</h2>
+      <p>Mealwise does not knowingly collect any data from children under 13.</p>
 
-    <h2>Changes to this policy</h2>
-    <p>We may update this policy occasionally. Any changes will be posted at this URL.</p>
+      <h2>Changes to this policy</h2>
+      <p>We may update this policy occasionally. Any changes will be posted at this URL.</p>
 
-    <h2>Contact</h2>
-    <p>If you have any questions about this policy, please contact us at: <a href="mailto:ascotford@gmail.com">ascotford@gmail.com</a></p>
+      <h2>Contact</h2>
+      <p>If you have any questions about this policy, please contact us at <a href="mailto:ascotford@gmail.com">ascotford@gmail.com</a>.</p>
+    </div>
+  </main>
 
-    <footer class="site-footer">
-      <div class="footer-badge">SS</div>
-      <div>
-        <div class="footer-text-name">Scotford</div>
-        <div class="footer-text-sub">Studios</div>
-      </div>
-    </footer>
-
-  </div>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="footer-logo" href="index.html">
+        <div class="footer-badge">SS</div>
+        <div>
+          <div class="footer-name">Scotford</div>
+          <div class="footer-sub">Studios</div>
+        </div>
+      </a>
+      <p class="footer-copy">© 2026 Scotford Studios · Family-made digital products</p>
+    </div>
+  </footer>
 
 </body>
 </html>
